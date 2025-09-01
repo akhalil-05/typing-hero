@@ -4,73 +4,47 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Typing Hero</title>
-  <meta name="robots" content="noindex" />
-  <!-- Transparent background so it blends into your Google Sites banner -->
- <style>
-  html, body { margin:0; background:transparent; }   /* no background box */
-  .wrap { display:flex; align-items:center; justify-content:center; padding:14px 0; }
-  #typed { color:#222; font-weight:800; font-size:clamp(28px, 6vw, 64px); }
-  .typed-cursor { color:#000; font-weight:800; }
-</style>
-    /* If you ever use a dark banner, this auto flips to white text */
-    @media (prefers-color-scheme: dark) {
-      :root{ --text-color: #fff; }
+  <style>
+    :root{
+      --text-color:#222; /* black text */
+      --font: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      --size: clamp(36px, 7vw, 72px);
+      --weight: 800;
+      --padY: 14px;
     }
-    html, body {
-      margin: 0;
-      background: transparent; /* crucial for embedding */
+    html,body{ margin:0; background:transparent; }
+    .wrap{
+      display:flex; align-items:center; justify-content:center;
+      padding:var(--padY) 0; line-height:1.1;
     }
-    .wrap {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: var(--padY) 0;
-      line-height: 1.1;
+    #typed{
+      font-family:var(--font); font-weight:var(--weight);
+      font-size:var(--size); color:var(--text-color);
+      text-align:center; white-space:nowrap;
     }
-    #typed {
-      font-family: var(--font);
-      font-weight: var(--weight);
-      font-size: var(--size);
-      color: var(--text-color);
-      text-align: center;
-      white-space: nowrap;
+    /* Make the caret big and visible */
+    .typed-cursor{
+      font-size:var(--size);
+      color:var(--text-color);
+      animation: blink .8s steps(1) infinite;
     }
-    /* caret style (matches Typed.js cursor) */
-    .typed-cursor {
-      font-weight: var(--weight);
-      color: var(--text-color);
-    }
+    @keyframes blink{ 50%{ opacity:0; } }
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <span id="typed">Hi, I'm Ali</span>
-  </div>
+  <div class="wrap"><span id="typed"></span></div>
 
-  <!-- Typed.js CDN -->
   <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
   <script>
-    // Configure your phrases here
-    const phrases = [
-      "Hi, I'm Ali",
-      "Mechatronics Engineer",
-      "Driven by design + robotics"
-    ];
-
     new Typed("#typed", {
-      strings: phrases,
+      strings: ["Hi, I'm Ali", "Mechatronics Engineer", "Driven by design + robotics"],
       typeSpeed: 80,
       backSpeed: 50,
       backDelay: 1200,
-      startDelay: 150,
       loop: true,
-      smartBackspace: true
+      smartBackspace: true,
+      cursorChar: "▍"  // thicker cursor block. Try "█" or "❚" if you want even thicker.
     });
   </script>
-
-  <noscript>
-    <!-- Fallback if JS is blocked -->
-    <div class="wrap"><span id="fallback" style="font-family: var(--font); font-weight: var(--weight); font-size: var(--size); color: var(--text-color);">Hi, I'm Ali</span></div>
-  </noscript>
 </body>
 </html>
