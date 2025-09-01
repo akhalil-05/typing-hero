@@ -6,14 +6,12 @@
   <title>Typing Hero</title>
   <meta name="robots" content="noindex" />
   <!-- Transparent background so it blends into your Google Sites banner -->
-  <style>
-    :root{
-      --text-color: #222;            /* black text for light banner */
-      --font: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
-      --size: clamp(28px, 6vw, 64px);/* responsive size */
-      --weight: 800;
-      --padY: 14px;                  /* top/bottom breathing room */
-    }
+ <style>
+  html, body { margin:0; background:transparent; }   /* no background box */
+  .wrap { display:flex; align-items:center; justify-content:center; padding:14px 0; }
+  #typed { color:#000; font-weight:800; font-size:clamp(28px, 6vw, 64px); }
+  .typed-cursor { color:#222; font-weight:800; }
+</style>
     /* If you ever use a dark banner, this auto flips to white text */
     @media (prefers-color-scheme: dark) {
       :root{ --text-color: #fff; }
