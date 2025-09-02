@@ -32,19 +32,24 @@
   </style>
 </head>
 <body>
-  <div class="wrap"><span id="typed"></span></div>
+<div class="wrap"><span id="typed"></span></div>
 
-  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-  <script>
-    new Typed("#typed", {
-      strings: ["Hi, I'm Ali", "Mechatronics Engineer", "Driven by design","+ robotics"],
-      typeSpeed: 80,
-      backSpeed: 50,
-      backDelay: 1200,
-      loop: true,
-      smartBackspace: true,
-      cursorChar: "▍"  // thicker cursor block. Try "█" or "❚" if you want even thicker.
-    });
-  </script>
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+<script>
+  new Typed("#typed", {
+    strings: [
+      "Hi, I'm Ali",
+      "Mechatronics Engineer",
+      "Driven by design<br>+ robotics"   // <-- one string with a line break
+    ],
+    typeSpeed: 80,
+    backSpeed: 50,
+    backDelay: 1200,
+    loop: true,
+    smartBackspace: true,
+    cursorChar: "▍",
+    contentType: "html"   // <-- allow the <br> to render
+  });
+</script>
 </body>
 </html>
